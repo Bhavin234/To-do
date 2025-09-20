@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stylish Todo — Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-light">
+  <div class="app">
+    <header class="app-header">
+      <div class="title">
+        <h1>My To-Do List</h1>
+        <p class="subtitle">demo</p>
+      </div>
+
+      <div class="header-controls">
+        <button id="theme-toggle" class="icon-btn" title="Cycle theme">🌙</button>
+      </div>
+    </header>
+
+    <!-- Dashboard Stats -->
+    <section class="stats" aria-label="Task summary">
+      <div class="card">
+        <p class="card-label">Total</p>
+        <h3 id="total-count">0</h3>
+      </div>
+
+      <div class="card">
+        <p class="card-label">Completed</p>
+        <h3 id="completed-count">0</h3>
+      </div>
+
+      <div class="card">
+        <p class="card-label">Pending</p>
+        <h3 id="pending-count">0</h3>
+      </div>
+
+      <div class="card progress-card">
+        <p class="card-label">Progress</p>
+        <div class="progress-row">
+          <h3 id="progress-percent">0%</h3>
+          <div class="progress-bar" aria-hidden="true">
+            <div id="progress-fill" class="progress-fill" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls: add + sort/filter -->
+    <section class="controls">
+      <div class="task-input">
+        <input id="taskInput" type="text" placeholder="What needs to be done?" aria-label="New task">
+        <input id="dueDate" type="date" aria-label="Due date">
+        <button id="addTask" class="add-btn" title="Add task">＋</button>
+      </div>
+
+      <div class="filters">
+        <!-- Custom Filter Dropdown -->
+        <div class="custom-select" data-type="filter">
+          <div class="selected">All</div>
+          <ul class="options">
+            <li data-value="all">All</li>
+            <li data-value="pending">Pending</li>
+            <li data-value="completed">Completed</li>
+          </ul>
+        </div>
+
+        <!-- Custom Sort Dropdown -->
+        <div class="custom-select" data-type="sort">
+          <div class="selected">Newest</div>
+          <ul class="options">
+            <li data-value="created_desc">Newest</li>
+            <li data-value="created_asc">Oldest</li>
+            <li data-value="due_asc">Due ↑</li>
+            <li data-value="due_desc">Due ↓</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Task list -->
+    <main>
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+    </main>
+
+    <footer class="app-footer">
+      <small>--</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
